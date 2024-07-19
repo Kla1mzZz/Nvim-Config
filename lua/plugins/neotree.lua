@@ -12,6 +12,27 @@ require("neo-tree").setup({
         enable_git_status = true, -- Включить отображение статуса Git
         enable_diagnostics = true, -- Включить отображение диагностик
         
+        sources = {
+            "filesystem",
+            "git_status"
+        },
+        source_selector = {
+            winbar = true,
+            statusline = false
+        },
+        
+
+        filesystem = {
+            filtered_items = {
+              visible = true, -- Show hidden files
+              hide_dotfiles = false,
+              hide_gitignored = false,
+            },
+            follow_current_file = true,
+            hijack_netrw_behavior = "open_current",
+            use_libuv_file_watcher = true, -- This will use the new libuv file watcher that comes with neovim 0.6
+        },
+        
         window = {
             width = 30,  -- Ширина окна
             padding = {
@@ -47,7 +68,25 @@ require("neo-tree").setup({
             use_git_status_colors = true,
             highlight = "NeoTreeFileName",
           },
+            
+          persist = true,
+
           git_status = {
+            window = {
+                position = "float",
+            },
+
+            mappings = {
+                ["<cr>"] = "open",
+                ["o"] = "open",
+                ["<2-LeftMouse>"] = "open",
+                ["<C-v>"] = "open_vsplit",
+                ["<C-s>"] = "open_split",
+                ["<C-t>"] = "open_tabnew",
+                ["<"] = "prev_source",
+                [">"] = "next_source",
+            },
+
             symbols = {
               -- измененные файлы
               added = "✚",
