@@ -41,6 +41,24 @@ require("lazy").setup({
     priority = 1000,
     
     },
+    
+    {
+        "smoka7/multicursors.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            'nvimtools/hydra.nvim',
+        },
+        opts = {},
+        cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+        keys = {
+                {
+                    mode = { 'v', 'n' },
+                    '<Leader>m',
+                    '<cmd>MCstart<cr>',
+                    desc = 'Create a selection for selected text or word under the cursor',
+                },
+            },
+    },
 
     {'tpope/vim-obsession'},
 
@@ -66,11 +84,10 @@ require("lazy").setup({
 
     {'numToStr/Comment.nvim'},
 
-    {
-        'glepnir/galaxyline.nvim',
-        branch = 'main',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    },
-
     {'jose-elias-alvarez/null-ls.nvim'},
+
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
 })

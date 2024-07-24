@@ -1,6 +1,18 @@
 vim.g.mapleader = ' '
 
 
+-- init.lua
+vim.diagnostic.config({
+    virtual_text = true, -- Отображение виртуальных текстов с ошибками
+    signs = true,        -- Отображение значков для ошибок
+    update_in_insert = true, -- Обновление ошибок во время вставки текста
+    severity_sort = true, -- Сортировка ошибок по степени серьезности
+    float = {
+        border = "rounded", -- Округлые границы для всплывающих окон
+        source = "always",  -- Показывать источник ошибки
+    },
+})
+
 vim.cmd('autocmd VimEnter * Obsession')
 
 --NeoTree

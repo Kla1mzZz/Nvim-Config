@@ -1,3 +1,3 @@
 vim.opt.termguicolors = true
 
-vim.cmd.colorscheme("nordic")
+vim.cmd.colorscheme("catppuccin-macchiato")
