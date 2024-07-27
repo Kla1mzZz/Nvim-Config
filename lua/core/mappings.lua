@@ -13,7 +13,6 @@ vim.diagnostic.config({
     },
 })
 
-vim.cmd('autocmd VimEnter * Obsession')
 
 --NeoTree
 vim.api.nvim_set_keymap('n', '<Space>e', ':Neotree toggle<CR>', { noremap = true, silent = true })
